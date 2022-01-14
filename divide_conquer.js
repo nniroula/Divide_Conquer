@@ -73,3 +73,70 @@ console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 3)); // 6
 console.log(findRotatedIndex([37,44,66,102,10,22],14)); // -1
 console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 12)); // -1
 */
+
+//4. 
+/*
+findRotationCount
+Write a function called findRotationCount which accepts an array of distinct numbers sorted in increasing order. 
+The array has been rotated counter-clockwise n number of times. Given such an array, find the value of n.
+
+Constraints:
+Time Complexity: O(log N)
+*/
+function findRotationCount(arr){
+    let arrayToSort = [];
+    let returnValue = 0;
+    for(let val of arr){
+        arrayToSort.push(val);
+    }
+    // console.log(arrayToSort);
+
+    // sort the arrayToSort array
+    arrayToSort.sort( function( a , b){
+        if(a > b) return 1;
+        if(a < b) return -1;
+        return 0;
+    });
+    // console.log(arrayToSort);
+    // get the last value of an argument array
+    let lastValue = arr[arr.length - 1];
+
+    // console.log(lastValue);
+
+    for(let i = 0; i< arrayToSort.length; i++){
+        if(arrayToSort[i] === lastValue){
+            if(arrayToSort[0] === lastValue){
+                returnValue = arrayToSort.length - 1;
+            }
+            else if(arrayToSort[arrayToSort.length - 1] === lastValue){
+                returnValue = 0;
+            }
+            else{
+                returnValue = i - 1;
+            }
+        }
+    }
+    return returnValue;
+}
+
+/*
+console.log(findRotationCount([15, 18, 2, 3, 6, 12])); // 2
+console.log(findRotationCount([7, 9, 11, 12, 5])); // 4
+console.log(findRotationCount([7, 9, 11, 12, 15])); // 0
+*/
+
+
+
+//5.
+/*
+findFloor
+Write a function called findFloor which accepts a sorted array and a value x, and returns the floor of x in the 
+array. The floor of x in an array is the largest element in the array which is smaller than or equal to x. If the 
+floor does not exist, return -1.
+*/
+
+/*
+findFloor([1,2,8,10,10,12,19], 9) // 8
+findFloor([1,2,8,10,10,12,19], 20) // 19
+findFloor([1,2,8,10,10,12,19], 0) // -1
+*/
