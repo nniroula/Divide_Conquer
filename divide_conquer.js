@@ -57,3 +57,19 @@ should return the index of num in the array. If the value is not found, return -
 Constraints:
 Time Complexity: O(log N)
 */
+function findRotatedIndex(rotatedArr, integer){
+    let index = -1;
+    for(let i = 0; i< rotatedArr.length; i++){
+        if(rotatedArr[i] === integer){
+            index = i;
+        }
+    }
+    return index;
+}
+/*
+console.log(findRotatedIndex([3,4,1,2],4)); // 1
+console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 8)); // 2
+console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 3)); // 6
+console.log(findRotatedIndex([37,44,66,102,10,22],14)); // -1
+console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 12)); // -1
+*/
