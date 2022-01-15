@@ -134,9 +134,22 @@ Write a function called findFloor which accepts a sorted array and a value x, an
 array. The floor of x in an array is the largest element in the array which is smaller than or equal to x. If the 
 floor does not exist, return -1.
 */
+function findFloor(arr, x){
+    let returnValue = -1;
+    let valueHolder = [];
+    for(let val of arr){
+        if(val <= x){
+            valueHolder.push(val);
+        }
+    }
+    if(valueHolder.length >= 1){
+        returnValue = valueHolder[valueHolder.length - 1];
+    }
+    return returnValue;
+}
 
 /*
-findFloor([1,2,8,10,10,12,19], 9) // 8
-findFloor([1,2,8,10,10,12,19], 20) // 19
-findFloor([1,2,8,10,10,12,19], 0) // -1
+console.log(findFloor([1,2,8,10,10,12,19], 9)); // 8
+console.log(findFloor([1,2,8,10,10,12,19], 20)); // 19
+console.log(findFloor([1,2,8,10,10,12,19], 0)); // -1
 */
